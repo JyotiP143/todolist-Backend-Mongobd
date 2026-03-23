@@ -1,6 +1,22 @@
+import TaskItem from "./TaskItem";
 
-export default function TaskList() {
+function TaskList({ tasks, onDelete, refresh }) {
   return (
-    <div>TaskList</div>
-  )
+    <div>
+      {tasks.length === 0 ? (
+        <p>No tasks yet</p>
+      ) : (
+        tasks.map((task) => (
+          <TaskItem
+            key={task._id}
+            task={task}
+            onDelete={onDelete}
+            refresh={refresh}
+          />
+        ))
+      )}
+    </div>
+  );
 }
+
+export default TaskList;

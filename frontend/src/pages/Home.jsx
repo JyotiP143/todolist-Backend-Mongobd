@@ -1,3 +1,7 @@
+
+ 
+
+
 import { useEffect, useState } from "react";
 import TaskForm from "../components/TaskForm";
 import TaskList from "../components/TaskList";
@@ -10,6 +14,7 @@ function Home() {
     const data = await getTasks();
     setTasks(data);
   };
+
 useEffect(() => {
   const fetchData = async () => {
     const data = await getTasks();
@@ -19,20 +24,20 @@ useEffect(() => {
   fetchData();
 }, []);
   return (
-    <div style={{ padding: "20px" }}>
+    <div className="container">
       <h1>Task Manager 🚀</h1>
 
-      <TaskForm onAdd={async (title) => {
-        await addTask(title);
-        loadTasks();
-      }} />
+      <TaskForm
+        onAdd={async (title) => {
+          await addTask(title);
+          loadTasks();
+        }}
+      />
 
       <TaskList
         tasks={tasks}
-        onDelete={async (id) => {
-          await deleteTask(id);
-          loadTasks();
-        }}
+        onDelete={deleteTask}
+        refresh={loadTasks}
       />
     </div>
   );
