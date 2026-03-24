@@ -1,6 +1,17 @@
+function TaskItem({ task }) {
+  // const handleDelete = async () => {
 
-export default function TaskItem() {
+    // onDelete, refresh
+  //   await onDelete(task._id);
+  //   refresh();
+  // };
+
   return (
-    <div>TaskItem</div>
-  )
+   <div className="task">
+  <span>{task.title}</span>
+  <button title="Delete task">❌</button>
+</div>
+  );
 }
+
+export default TaskItem;

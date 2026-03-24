@@ -12,9 +12,9 @@ function TaskForm({ onAdd }) {
 
   return (
     <form onSubmit={handleSubmit} className="form">
-      <input
+      <input className="taskInput"
         type="text"
-        placeholder="Enter task..."
+        placeholder="✨ Add a new task..."
         value={title}
         onChange={(e) => setTitle(e.target.value)}
       />
